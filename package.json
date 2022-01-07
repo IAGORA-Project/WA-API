@@ -12,7 +12,9 @@
   "dependencies": {
     "@adiwajshing/baileys-md": "github:adiwajshing/baileys#multi-device",
     "chalk": "^4.1.2",
+    "cors": "^2.8.5",
     "express": "^4.17.2",
+    "helmet": "^5.0.1",
     "moment-timezone": "^0.5.34"
   }
 }

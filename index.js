@@ -15,6 +15,8 @@ const {
 const express = require('express');
 const { color } = require('./lib/function');
 const app = express();
+const helmet = require('helmet');
+const cors = require('cors');
 let session = `./session.json`;
 let package = require('./package.json');
 const { state, saveState } = useSingleFileAuthState(session);
@@ -23,6 +25,18 @@ const moment = require('moment-timezone');
 moment.tz.setDefault('Asia/Jakarta').locale('id');
 
 const PORTS = process.env.PORT || 8001;
+
+// const whitelist = ['http://localhost:3000/', 'http://localhost:5000/']
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//       console.log(origin)
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error('Not allowed by CORS'))
+//     }
+//   }
+// }
 
 const run = async () => {
 
@@ -33,7 +47,10 @@ const run = async () => {
             auth: state,
             browser: ['wa', 'Safari', '3.0'],
         });
-    
+
+        app.use(cors())
+        app.use(helmet());
+
         const router = require('./router/router')(client);
         app.get('/', (req, res) => {
             res.send('Client Online')
