@@ -212,6 +212,8 @@ URL : `${BASE_URL}/api/v1/sendfile?no=79648301411&type=audio&filename=test`
 **Exec Terminal**
 Untuk Memudahkan Dalam Mengatur Session WhatsApp
 Example :
+
 `$pm2 restart index.js`
+
 `$npm i <package npm>`
 
