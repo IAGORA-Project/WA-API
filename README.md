@@ -32,8 +32,11 @@ Jika Ingin Coba Menggunakan Nomer Sendiri Silahkan Hapus/Rename File session.jso
 URL : `${BASE_URL}/api/v1/send?no=79648301411&text=testt`
 
 ##### METHOD : GET
+
 **Query : no & text**
+
 `no` : Nomer Target
+
 `text` : Pesan Yang Akan Dikirim
 
 **Example Response**
@@ -51,9 +54,13 @@ URL : `${BASE_URL}/api/v1/send?no=79648301411&text=testt`
 URL : `${BASE_URL}/api/v1/sendcontact?no=79648301411&contact=6281346832542&name=CS IAGORA`
 
 ##### METHOD : GET
+
 **Query : no, contact & name**
+
 `no` : Nomer Target
+
 `contact` : Kontak Yang Ingin Dikirim
+
 `name` : Nama Kontak
 
 **Example Response**
@@ -70,10 +77,15 @@ URL : `${BASE_URL}/api/v1/sendcontact?no=79648301411&contact=6281346832542&name=
 URL : `${BASE_URL}/api/v1/sendfile?no=79648301411&text=ini textnya&type=image`
 
 ##### METHOD : POST
+
 **Body (form-data) : png/jpg**
+
 **text : no, text & type**
+
 `no` : Nomer Target
+
 `text` : Pesan Yang Akan Dikirim
+
 `type` : Tipe File `image`
 
 **Example Response**
@@ -98,10 +110,15 @@ URL : `${BASE_URL}/api/v1/sendfile?no=79648301411&text=ini textnya&type=image`
 URL : `${BASE_URL}/api/v1/sendfile?no=79648301411&text=ini textnya video&type=video`
 
 ##### METHOD : POST
+
 **Body (form-data) : mp4**
+
 **text : no, text & type**
+
 `no` : Nomer Target
+
 `text` : Pesan Yang Akan Dikirim
+
 `type` : Tipe File `image`
 
 **Example Response**
@@ -126,10 +143,15 @@ URL : `${BASE_URL}/api/v1/sendfile?no=79648301411&text=ini textnya video&type=vi
 URL : `${BASE_URL}/api/v1/sendfile?no=79648301411&type=document&filename=Word Example`
 
 ##### METHOD : POST
+
 **Body (form-data) : ppt/doc/text/dll**
+
 **text : no, type & filename**
+
 `no` : Nomer Target
+
 `type` : Tipe File `image`
+
 `filename` : Nama File Yang Akan Dikirim
 
 **Example Response**
@@ -155,10 +177,15 @@ URL : `${BASE_URL}/api/v1/sendfile?no=79648301411&type=document&filename=Word Ex
 URL : `${BASE_URL}/api/v1/sendfile?no=79648301411&type=audio&filename=test`
 
 ##### METHOD : POST
+
 **Body (form-data) : ppt/doc/text/dll**
+
 **text : no, type & filename**
+
 `no` : Nomer Target
+
 `type` : Tipe File `image`
+
 `filename` : Nama File Yang Akan Dikirim
 
 **Example Response**
