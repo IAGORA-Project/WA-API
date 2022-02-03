@@ -22,6 +22,8 @@ const {
     decryptMediaMessageBuffer
 } = require('@adiwajshing/baileys-md');
 
+const { Boom } = require('@hapi/boom')
+
 const pino = require('pino');
 const express = require('express');
 const app = express();
@@ -35,6 +37,7 @@ const session = `./session.json`;
 const { state, saveState } = useSingleFileAuthState(session);
 
 const { handler, functions } = require('./lib');
+const { os_func } = require('./lib/function');
 
 const PORTS = process.env.PORT || 8001;
 
@@ -61,6 +64,7 @@ const run = async () => {
         app.use('/api/v1', router);
     
         client.ev.on('connection.update', (update) => {
+            let reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
             const { connection, lastDisconnect } = update;
             if (connection == 'connecting') {
                 console.log(
@@ -69,13 +73,14 @@ const run = async () => {
                     functions.color(`WA-API is Authenticating...`, '#f12711')
                 );
             } else if (connection === 'close') {
-                console.log(
-                    functions.color('[SYS]', '#009FFF'),
-                    functions.color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
-                    functions.color(`Connection Closed, trying to reconnect`, '#f64f59')
-                );
-                lastDisconnect.error?.output?.statusCode !== DisconnectReason.loggedOut
-                    ? start() : start()
+                if (reason === DisconnectReason.badSession) { console.log(`Bad Session File, Please Delete ${session} and Scan Again`); process.exit(); }
+                else if (reason === DisconnectReason.connectionClosed) { console.log("Connection closed, reconnecting...."); start(); }
+                else if (reason === DisconnectReason.connectionLost) { console.log("Connection Lost from Server, reconnecting..."); start(); }
+                else if (reason === DisconnectReason.connectionReplaced) { console.log("Connection Replaced, Another New Session Opened, Please Close Current Session First"); process.exit(); }
+                else if (reason === DisconnectReason.loggedOut) { console.log(`Device Logged Out, Please Delete ${session} and Scan Again.`); process.exit(); }
+                else if (reason === DisconnectReason.restartRequired) { console.log("Restart Required, Restarting..."); start(); }
+                else if (reason === DisconnectReason.timedOut) { console.log("Connection TimedOut, Reconnecting..."); start(); }
+                else { console.log(`Unknown DisconnectReason: ${reason}|${connection}`) }
             } else if (connection == 'open') {
                 console.log(
                     functions.color('[SYS]', '#009FFF'),
@@ -99,9 +104,19 @@ const run = async () => {
     
     start();
 
-        app.listen(PORTS, () => {
-            console.log(functions.color('[~>>]'), functions.color(`App Running http://localhost:${PORTS}`, 'green'))
-            console.log(functions.color('==================================================================='))
+    const interval = setInterval(async () => {
+        var oz = new os_func();
+        oz.execCommand('pm2 restart index.js').then(res => {
+            console.log('[DEV] RESTARTING');
+        }).catch(err=> {
+            console.log("[DEV] >>>", err);
         })
+        clearInterval(interval)
+    }, 10800000) // 3 JAM
+
+    app.listen(PORTS, () => {
+        console.log(functions.color('[~>>]'), functions.color(`App Running http://localhost:${PORTS}`, 'green'))
+        console.log(functions.color('==================================================================='))
+    })
 }
 run();

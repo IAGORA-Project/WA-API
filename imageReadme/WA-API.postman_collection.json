@@ -1,0 +1,269 @@
+{
+	"info": {
+		"_postman_id": "26fd4e50-0b03-42de-b920-9778c8cf7b8c",
+		"name": "WA-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SEND AUDIO",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Zekais HP Pavilion/Downloads/file_example_MP3_700KB.mp3"
+						}
+					]
+				},
+				"url": {
+					"raw": "185.201.9.239:8001/api/v1/sendfile?no=79648301411&type=audio&filename=test",
+					"host": [
+						"185",
+						"201",
+						"9",
+						"239"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"sendfile"
+					],
+					"query": [
+						{
+							"key": "no",
+							"value": "79648301411"
+						},
+						{
+							"key": "type",
+							"value": "audio"
+						},
+						{
+							"key": "filename",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SEND IMAGE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Zekais HP Pavilion/OneDrive/Pictures/random image/cat.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "185.201.9.239:8001/api/v1/sendfile?no=79648301411&text=ini textnya&type=image",
+					"host": [
+						"185",
+						"201",
+						"9",
+						"239"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"sendfile"
+					],
+					"query": [
+						{
+							"key": "no",
+							"value": "79648301411"
+						},
+						{
+							"key": "text",
+							"value": "ini textnya"
+						},
+						{
+							"key": "type",
+							"value": "image"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SEND VIDEO",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Zekais HP Pavilion/Downloads/file_example_MP4_480_1_5MG.mp4"
+						}
+					]
+				},
+				"url": {
+					"raw": "185.201.9.239:8001/api/v1/sendfile?no=79648301411&text=ini textnya video&type=video",
+					"host": [
+						"185",
+						"201",
+						"9",
+						"239"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"sendfile"
+					],
+					"query": [
+						{
+							"key": "no",
+							"value": "79648301411"
+						},
+						{
+							"key": "text",
+							"value": "ini textnya video"
+						},
+						{
+							"key": "type",
+							"value": "video"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SEND DOCUMENT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Zekais HP Pavilion/OneDrive/Documents/Dokumen.docx"
+						}
+					]
+				},
+				"url": {
+					"raw": "185.201.9.239:8001/api/v1/sendfile?no=79648301411&type=document&filename=Word Example",
+					"host": [
+						"185",
+						"201",
+						"9",
+						"239"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"sendfile"
+					],
+					"query": [
+						{
+							"key": "no",
+							"value": "79648301411"
+						},
+						{
+							"key": "type",
+							"value": "document"
+						},
+						{
+							"key": "filename",
+							"value": "Word Example"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SEND TEXT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://185.201.9.239:8001/api/v1/send?no=79648301411&text=testt",
+					"protocol": "http",
+					"host": [
+						"185",
+						"201",
+						"9",
+						"239"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"send"
+					],
+					"query": [
+						{
+							"key": "no",
+							"value": "79648301411"
+						},
+						{
+							"key": "text",
+							"value": "testt"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SEND CONTACT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://185.201.9.239:8001/api/v1/sendcontact?no=79648301411&contact=6281346832542&name=CS IAGORA",
+					"protocol": "http",
+					"host": [
+						"185",
+						"201",
+						"9",
+						"239"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"sendcontact"
+					],
+					"query": [
+						{
+							"key": "no",
+							"value": "79648301411"
+						},
+						{
+							"key": "contact",
+							"value": "6281346832542"
+						},
+						{
+							"key": "name",
+							"value": "CS IAGORA"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

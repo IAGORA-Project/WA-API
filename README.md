@@ -1,5 +1,9 @@
 # WA-API
 
+##### *Postman Example : <a href="https://github.com/IAGORA-Project/BE-API/blob/main/imageReadme/WA-API.postman_collection.json" target="__blank">imageReadme/WA-API.postman_collection.json</a>*
+
+### Session WhatsApp
+
 Menggunakan Session Dengan Nomer WhatsApp ([6287715579967](wa.me/6287715579967))
 
 Jika Ingin Coba Menggunakan Nomer Sendiri Silahkan Hapus/Rename File session.json
