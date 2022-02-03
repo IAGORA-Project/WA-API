@@ -1,6 +1,6 @@
 # WA-API
 
-##### *Postman Example : <a href="https://github.com/IAGORA-Project/BE-API/blob/main/imageReadme/WA-API.postman_collection.json" target="__blank">imageReadme/WA-API.postman_collection.json</a>*
+##### *Postman Example : <a href="https://github.com/IAGORA-Project/WA-API/blob/main/imageReadme/WA-API.postman_collection.json" target="__blank">imageReadme/WA-API.postman_collection.json</a>*
 
 ### Session WhatsApp
 
